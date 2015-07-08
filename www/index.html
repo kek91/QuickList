@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>QuickList</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <h1>QuickList</h1>
+
+        <div id="todolist">
+            <label><input type="checkbox" name="todo[]" value="'Pizza'">Pizza</label>
+            <label><input type="checkbox" name="todo[]" value="'Coffee'">Coffee</label>
+            <label><input type="checkbox" name="todo[]" value="'Beer'">Beer</label>
+        </div>
+
+        <!-- <form id="add" method="post" action="#"> -->
+            <input type="text" name="todo_add_item" placeholder="Do this..." value="Test">
+        <!-- </form> -->
+
+        <a href="#" id="todo_add" data-role="button" data-theme="a">Add</a>
+        <a href="#" id="todo_clean" data-role="button" data-theme="a">Clean</a>
+        <a href="#popupDialog" data-role="button" data-theme="a" data-rel="popup" data-position-to="window" data-transition="pop">Delete all</a>
+        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="false">
+            <div data-role="header" data-theme="a">
+                <h1>Delete all</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <h3 class="ui-title">Are you sure you want to delete everything from the todo list?</h3>
+            <p>This action cannot be undone.</p>
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a>
+                <a href="#" id="todo_delete_confirmed" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Delete</a>
+            </div>
+        </div>
+
+        <a href="#popupAbout" data-role="button" data-theme="a" data-rel="popup" data-position-to="window" data-transition="pop">About</a>
+        <div data-role="popup" id="popupAbout" data-overlay-theme="a" data-theme="a" data-dismissible="false">
+            <div data-role="header" data-theme="a">
+                <h1>About</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <h3 class="ui-title" style="text-align:center;">About QuickList</h3>
+            <p style="text-align:center;">v1.0.15</p><br>
+            <p>Author: <a href="http://kek91.github.io">Kim Eirik Kvassheim</a></p>
+            <p>Github: <a href="#">TBA</a></p><br>
+            <p>Send feedback to <a href="mailto:kek@teknix.no">kek@teknix.no</a></p>
+            <p>Thanks for using QuickList!</p><br>
+                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Close</a>
+            </div>
+        </div>
+
+
+
+        <script>
+            $(document).bind("pageinit", function() {
+                
+
+                $('#todo_add').click(function(){
+                    var data = $('input[name=todo_add_item]').val();
+                    $('#todolist').append('<label><input type="checkbox" name="todo[]" value="'+data+'">'+data+'</label>');
+                    $('input[type=checkbox]').checkboxradio().trigger('create');
+                });
+
+                $('#todo_clean').click(function(){
+                    var selected = [];
+                    $('#todolist input:checked').each(function() {
+                        //selected.push($(this).attr('name'));
+                        //$("label[for='"+$(this).attr("id")+"']").remove();
+                        $(this).prev('label').remove();
+                        $(this).remove();
+                    });
+                });
+
+                $('#todo_delete_confirmed').click(function(){
+                    $('#todolist').html("");
+                });
+
+
+                // $('label').click(function(){
+                //     $(this).addClass('grayedOut');
+                // });
+
+                // $(document).on('click', 'label', function(){
+                //     $(this).next('div').css('background', '000000');
+                // });
+             
+
+// $(document).on('click', '.list_accordion_toggle', function (event) {
+//     $(this).toggleClass('list_item collapse').next().toggle();
+//     $(this).find('.icon-minus-sign, .icon-plus-sign').toggleClass('icon-minus-sign icon-plus-sign')
+// });
+
+                
+                // $(document).on('click', 'p', function(){
+                //     //$(this).remove();
+                //     //$(this).toggleClass('grayedOut');
+                //     $(this).css('text-decoration', 'line-through');
+                // });
+
+
+                $(function(){
+                    // Bind the swiperightHandler callback function to the swipe event on div.box
+                  $( "p" ).on( "swiperight", swiperightHandler );
+                 
+                  // Callback function references the event target and adds the 'swiperight' class to it
+                  function swiperightHandler( event ){
+                    $( event.target ).addClass( "grayedOut" );
+                  }
+                });
+
+            });
+
+
+
+
+        // $(document).ready(function() {
+
+        //     $("#button").click(function() {
+        //         var toAdd = $("input[name=checkListItem]").val();
+        //         $(".list").append('<div class="item">' + toAdd + '</div>');
+        //     })
+            
+        //     $(document).on('click', '.item', function() {
+        //         $(this).remove();
+        //     })
+
+        // })
+
+
+
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
