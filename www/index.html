@@ -20,13 +20,13 @@
         <h1>QuickList</h1>
 
         <div id="todolist">
-            <label><input type="checkbox" name="todo[]" value="'Pizza'">Pizza</label>
+            <!--<label><input type="checkbox" name="todo[]" value="'Pizza'">Pizza</label>
             <label><input type="checkbox" name="todo[]" value="'Coffee'">Coffee</label>
-            <label><input type="checkbox" name="todo[]" value="'Beer'">Beer</label>
+            <label><input type="checkbox" name="todo[]" value="'Beer'">Beer</label> -->
         </div>
 
         <!-- <form id="add" method="post" action="#"> -->
-            <input type="text" name="todo_add_item" placeholder="Do this..." value="Test">
+        <input type="text" name="todo_add_item" placeholder="Do this...">
         <!-- </form> -->
 
         <a href="#" id="todo_add" data-role="button" data-theme="a">Add</a>
@@ -51,7 +51,8 @@
             </div>
             <div role="main" class="ui-content">
                 <h3 class="ui-title" style="text-align:center;">About QuickList</h3>
-            <p style="text-align:center;">v1.0.15</p><br>
+            <p style="text-align:center;">v1.1.0<br>
+            <img src="icon.png"></p><br>
             <p>Author: <a href="http://kek91.github.io">Kim Eirik Kvassheim</a></p>
             <p>Github: <a href="#">TBA</a></p><br>
             <p>Send feedback to <a href="mailto:kek@teknix.no">kek@teknix.no</a></p>
@@ -60,119 +61,7 @@
             </div>
         </div>
 
-
-
-        <script>
-            $(document).bind("pageinit", function() {
-                
-
-                $('#todo_add').click(function(){
-                    var data = $('input[name=todo_add_item]').val();
-                    $('#todolist').append('<label><input type="checkbox" name="todo[]" value="'+data+'">'+data+'</label>');
-                    $('input[type=checkbox]').checkboxradio().trigger('create');
-                });
-
-                $('#todo_clean').click(function(){
-                    var selected = [];
-                    $('#todolist input:checked').each(function() {
-                        //selected.push($(this).attr('name'));
-                        //$("label[for='"+$(this).attr("id")+"']").remove();
-                        $(this).prev('label').remove();
-                        $(this).remove();
-                    });
-                });
-
-                $('#todo_delete_confirmed').click(function(){
-                    $('#todolist').html("");
-                });
-
-
-                // $('label').click(function(){
-                //     $(this).addClass('grayedOut');
-                // });
-
-                // $(document).on('click', 'label', function(){
-                //     $(this).next('div').css('background', '000000');
-                // });
-             
-
-// $(document).on('click', '.list_accordion_toggle', function (event) {
-//     $(this).toggleClass('list_item collapse').next().toggle();
-//     $(this).find('.icon-minus-sign, .icon-plus-sign').toggleClass('icon-minus-sign icon-plus-sign')
-// });
-
-                
-                // $(document).on('click', 'p', function(){
-                //     //$(this).remove();
-                //     //$(this).toggleClass('grayedOut');
-                //     $(this).css('text-decoration', 'line-through');
-                // });
-
-
-                $(function(){
-                    // Bind the swiperightHandler callback function to the swipe event on div.box
-                  $( "p" ).on( "swiperight", swiperightHandler );
-                 
-                  // Callback function references the event target and adds the 'swiperight' class to it
-                  function swiperightHandler( event ){
-                    $( event.target ).addClass( "grayedOut" );
-                  }
-                });
-
-            });
-
-
-
-
-        // $(document).ready(function() {
-
-        //     $("#button").click(function() {
-        //         var toAdd = $("input[name=checkListItem]").val();
-        //         $(".list").append('<div class="item">' + toAdd + '</div>');
-        //     })
-            
-        //     $(document).on('click', '.item', function() {
-        //         $(this).remove();
-        //     })
-
-        // })
-
-
-
-
-        </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <script src="js/quicklist.js"></script>
 
     </body>
 </html>

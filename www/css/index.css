@@ -64,15 +64,11 @@ h2 {
 }
 */
 
-#todolist label:hover {
-    background:#f1f1f1;
+label {
+    margin:0;
 }
 
 .grayedOut {
     text-decoration: line-through;
     color:#cccccc;
-}
-
-input:hover {
-    color:#ccc;
 }
