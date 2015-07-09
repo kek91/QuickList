@@ -25,11 +25,11 @@
             <label><input type="checkbox" name="todo[]" value="'Beer'">Beer</label> -->
         </div>
 
-        <!-- <form id="add" method="post" action="#"> -->
-        <input type="text" name="todo_add_item" placeholder="Do this...">
-        <!-- </form> -->
+        <form id="todo_add">
+        <input type="text" name="todo_add_item" placeholder="Do this..." autofocus>
+        <input type="submit" value="Add">
+        </form>
 
-        <a href="#" id="todo_add" data-role="button" data-theme="a">Add</a>
         <a href="#" id="todo_clean" data-role="button" data-theme="a">Clean</a>
         <a href="#popupDialog" data-role="button" data-theme="a" data-rel="popup" data-position-to="window" data-transition="pop">Delete all</a>
         <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="false">

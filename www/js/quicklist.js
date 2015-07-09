@@ -10,10 +10,14 @@ $(document).bind("pageinit", function() {
         $('input[type=checkbox]').checkboxradio().trigger('create');
     }
 
-    $('#todo_add').click(function(){
+    $('form#todo_add').submit(function(event){
+        event.preventDefault();
         var data = $('input[name=todo_add_item]').val().trim();
         if(!data) {
-            alert("Input cannot be empty.");
+            alert("Text input cannot be empty.");
+        }
+        else if (localStorage.getItem(data)) {
+            alert("This entry already exists");
         }
         else {
             localStorage.setItem(data, data);
@@ -23,18 +27,22 @@ $(document).bind("pageinit", function() {
         }
     });
 
+
     $('#todo_clean').click(function(){
         var selected = [];
         $('#todolist input:checked').each(function() {
             //selected.push($(this).attr('name'));
             //$("label[for='"+$(this).attr("id")+"']").remove();
+            //alert($(this).val());
             $(this).prev('label').remove();
             $(this).remove();
+            localStorage.removeItem($(this).val());
         });
     });
 
     $('#todo_delete_confirmed').click(function(){
         $('#todolist').html("");
+        localStorage.clear();
     });
 
 
