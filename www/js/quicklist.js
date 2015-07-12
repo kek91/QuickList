@@ -52,7 +52,7 @@ $(document).bind("pageinit", function() {
     /* Todo list 2 */
     $('form#todo_add2').submit(function(event){
         event.preventDefault();
-        var data = $('input[name=todo_add_item2]').val().trim();
+        var data = '||2||' + $('input[name=todo_add_item2]').val().trim();
         var dataText = $('input[name=todo_add_item2]').val().trim();
         if(!data) {
             alert("Text input cannot be empty.");
