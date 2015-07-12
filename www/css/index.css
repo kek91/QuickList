@@ -43,30 +43,7 @@ h2 {
 }
 
 
-
-
-
-#todolist {
-/*
-    width:80%;
-    margin:10px auto 50px auto;
-    padding:30px;
-    background:#f9f9f9;
-    border:1px solid #cccccc;
-*/
-    margin-bottom:20px;
-}
-
-/*
-#todolist label {
-    cursor:pointer;
-    padding:5px;
-}
-*/
-
-label {
-    margin:0;
-}
+label::first-letter { text-transform: uppercase; }
 
 .grayedOut {
     text-decoration: line-through;

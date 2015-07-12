@@ -19,17 +19,42 @@
 
         <h1>QuickList</h1>
 
-        <fieldset data-role="controlgroup">
-        <div id="todolist">
+            
+        <div data-role="tabs" id="tabs">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#one" data-ajax="false">Todo</a></li>
+              <li><a href="#two" data-ajax="false">Extra</a></li>
+            </ul>
+          </div>
+
+          <div id="one" class="ui-body-d ui-content">
+            <fieldset data-role="controlgroup">
+                <div id="todolist">
+                </div>
+            </fieldset>
+            <form id="todo_add">
+                <input type="text" name="todo_add_item" data-clear-btn="true" placeholder="To do...">
+                <input type="submit" value="Add task" data-icon="plus">
+            </form>
+            <a href="#" id="todo_clean" data-role="button" data-theme="a" data-icon="refresh">Delete finished tasks</a>
+          </div>
+          
+          <div id="two" class="ui-body-d ui-content">
+            <fieldset data-role="controlgroup">
+                <div id="todolist2">
+                </div>
+            </fieldset>
+            <form id="todo_add2">
+                <input type="text" name="todo_add_item2" data-clear-btn="true" placeholder="To do...">
+                <input type="submit" value="Add task" data-icon="plus">
+            </form>
+            <a href="#" id="todo_clean2" data-role="button" data-theme="a" data-icon="refresh">Delete finished tasks</a>
+          </div>
+        
         </div>
-        </fieldset>
 
-        <form id="todo_add">
-            <input type="text" name="todo_add_item" data-clear-btn="true" placeholder="To do...">
-            <input type="submit" value="Add" data-icon="plus">
-        </form>
 
-        <a href="#" id="todo_clean" data-role="button" data-theme="a" data-icon="refresh">Clean</a>
 
         <a href="#popupDialog" data-role="button" data-theme="a" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="delete">Delete all</a>
             <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="false">
@@ -37,7 +62,7 @@
                     <h1>Delete all</h1>
                 </div>
                 <div role="main" class="ui-content">
-                    <h3 class="ui-title">Are you sure you want to delete everything from the todo list?</h3>
+                    <h3 class="ui-title">Are you sure you want to delete everything from both todo lists?</h3>
                 <p>This action cannot be undone.</p>
                     <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Cancel</a>
                     <a href="#" id="todo_delete_confirmed" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back" data-transition="flow">Delete</a>
@@ -51,7 +76,7 @@
                 </div>
                 <div role="main" class="ui-content">
                     <h3 class="ui-title" style="text-align:center;">About QuickList</h3>
-                <p style="text-align:center;">v1.2.1<br>
+                <p style="text-align:center;">v1.3.0<br>
                 <img src="icon.png"></p><br>
                 <p>Author: <a href="http://kek91.github.io">Kim Eirik Kvassheim</a></p>
                 <p>Github: <a href="https://github.com/kek91/QuickList">github.com/kek91/QuickList</a></p><br>
