@@ -8,9 +8,9 @@
         <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0">
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>QuickList</title>
     </head>
@@ -20,13 +20,10 @@
         <h1>QuickList</h1>
 
         <div id="todolist">
-            <!--<label><input type="checkbox" name="todo[]" value="'Pizza'">Pizza</label>
-            <label><input type="checkbox" name="todo[]" value="'Coffee'">Coffee</label>
-            <label><input type="checkbox" name="todo[]" value="'Beer'">Beer</label> -->
         </div>
 
         <form id="todo_add">
-        <input type="text" name="todo_add_item" placeholder="Do this...">
+        <input type="text" name="todo_add_item" data-clear-btn="true" placeholder="To do...">
         <input type="submit" value="Add">
         </form>
 
