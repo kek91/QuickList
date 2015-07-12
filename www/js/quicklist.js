@@ -31,9 +31,6 @@ $(document).bind("pageinit", function() {
     $('#todo_clean').click(function(){
         var selected = [];
         $('#todolist input:checked').each(function() {
-            //selected.push($(this).attr('name'));
-            //$("label[for='"+$(this).attr("id")+"']").remove();
-            //alert($(this).val());
             $(this).prev('label').remove();
             $(this).remove();
             localStorage.removeItem($(this).val());
