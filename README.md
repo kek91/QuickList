@@ -15,9 +15,11 @@ Since it's just HTML/CSS/Javascript you can clone the repository and view it fro
 
 or
 
-Download and install the Android version using the Qr code below:
+Download and install Android/Windows Phone version using the Qr code below:
 
 ![Qr code download](quicklist_qrcode.png?raw=true "Qr code download")
+
+Direct link: [https://build.phonegap.com/apps/1541117/install/hboVuqG9HvqKmWmsZE1U](https://build.phonegap.com/apps/1541117/install/hboVuqG9HvqKmWmsZE1U)
 
 
 ## Preview:
